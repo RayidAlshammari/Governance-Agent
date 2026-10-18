@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "@governance/tailwind-config/theme";
+
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@source "../../../packages/ui/src/*.{ts,tsx}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+@custom-variant auto (&:where(.auto, .auto *));
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@theme inline {
+  --color-ndmo-blue-dark: #1a365d;
+  --color-ndmo-blue-medium: #2b6cb0;
+  --color-ndmo-blue-light: #4299e1;
+  --color-ndmo-blue-pale: #ebf8ff;
+  --color-ndmo-green: #38a169;
+  --color-ndmo-yellow: #d69e2e;
+  --color-ndmo-red: #e53e3e;
+  --color-ndmo-gray-dark: #2d3748;
+  --color-ndmo-gray-medium: #718096;
+  --color-ndmo-gray-light: #e2e8f0;
+}
+
+@layer base {
+  :root {
+    --font-geist-sans: "Geist Variable";
+    --font-geist-mono: "Geist Mono Variable";
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    letter-spacing: var(--tracking-normal);
+  }
+}
